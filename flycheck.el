@@ -4698,7 +4698,8 @@ See URL `http://pypi.python.org/pypi/flake8'."
    ;; Syntax errors in Flake8 < 2.0, in Flake8 >= 2.0 syntax errors are caught
    ;; by the E.* pattern above
    (error line-start (file-name) ":" line ":" (message) line-end))
-  :modes python-mode)
+  :modes python-mode
+  :next-checkers ((warnings-only . python-pylint)))
 
 (flycheck-def-config-file-var flycheck-pylintrc python-pylint
                               ".pylintrc"
